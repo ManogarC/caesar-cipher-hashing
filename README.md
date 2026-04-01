@@ -23,14 +23,17 @@ Large modulus m = 2^61 - 1 (a prime number)
 - Output is padded or trimmed to a fixed length (default = 12)
 
 ## Flow of the Program
+### Encryption
+- Input: Plain text and the key are given as input  
+- Encryption: Iterate through the plain text, and shift each character according to the given key 
+- Hashing: Hash the encrypted ceasar text, get hash value
+- Appending: Concatenate the encrypted text and the hash value
 
-- Input: Plain text is given as input  
-- Hash value generation: Plain text is passed to the hashing function which returns the respective hash value  
-- Appending: Plain text and Hash value are concatenated  
-- Encryption: The concatenated string is passed to the caesar cipher encryption function along with the shift key  
-- Decryption: The Encrypted text is decrypted using the negative of the shift key  
-- Retrieving: The Plain text is retrieved from the decrypted string  
-- Integrity Check: The initial hash value is compared with hashed value of the retrived text as a check for integrity  
+### Decryption
+- Extraction: Separate the encrypted text and hash value
+- Decrypting: Apply ceasar cipher with negative shift for decryption
+- Integrity check: Apply hash function on the retrieved text and compare it with the retrieved hash
+
 
 ## Use of LLM in this
 
