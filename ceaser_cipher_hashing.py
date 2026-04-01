@@ -42,19 +42,24 @@ def caeser(text, n):
 
     return word
 
-plain_text=input("Enter the Plain text:")
-n=len(plain_text)
-hash_value=hashing(plain_text)
-hash_text=plain_text+hash_value
-print(hash_text)
-n=int(input("Enter the no.of.characters to shift (key):"))
-encrypted=caeser(hash_text, n)
-print(encrypted,"Encryption process is over..",'\n')
 
-decrypt=caeser(encrypted,-n)
-retrived_text=decrypt[:n+1]
-print("Text after decrypting the encrypted text:",retrived_text)
-if(hash_value==hashing(retrived_text)):
-    print("Text after decrypted is same as plain text")
+plain_text=input("Enter your plain text:")
+n=len(plain_text)
+key=int(input("Enter your shift value(key):"))
+
+#ENCRYPTION
+caeser_text=caeser(plain_text,key)
+hash_value=hashing(caeser_text)
+encrypted_text=caeser_text+hash_value
+print("message after encryption:",encrypted_text)
+print("Encryption Done..")
+
+#DECRYPTION
+retrieved_text=encrypted_text[:n]
+print(retrieved_text)
+decrypted_text=caeser(retrieved_text,-key)
+if(encrypted_text[n:]==hashing(retrieved_text)):
+    print("Hashing value Matches..")
+    print(decrypted_text)
 else:
-    print("some error")
+    print("error")
