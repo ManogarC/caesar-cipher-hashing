@@ -22,6 +22,11 @@ Large modulus m = 2^61 - 1 (a prime number)
 - Result is converted into a base-62 string  
 - Output is padded or trimmed to a fixed length (default = 12)
 
+## Instruction to Run the file
+- Start the program 
+- Give plain text as input
+- Give the number of characters to shift (key value)
+
 ## Flow of the Program
 ### Encryption
 - Input: Plain text and the key are given as input  
